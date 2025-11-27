@@ -1,0 +1,11 @@
+inputs:
+  foundry:
+    url: github:shazow/foundry.nix/stable
+    inputs:
+      nixpkgs:
+        follows: nixpkgs
+  githooks:
+    url: github:y-cg/githooks.nix/master
+  nixpkgs:
+    url: github:cachix/devenv-nixpkgs/rolling
+allowUnfree: true
