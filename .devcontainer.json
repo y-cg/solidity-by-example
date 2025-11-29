@@ -1,9 +1,12 @@
 {
   "customizations": {
     "vscode": {
-      "extensions": [
-        "mkhl.direnv"
-      ]
+      "extensions": ["mkhl.direnv"]
+    }
+  },
+  "features": {
+    "ghcr.io/devcontainers/features/sshd:1": {
+      "version": "latest"
     }
   },
   "image": "ghcr.io/cachix/devenv/devcontainer:latest",
