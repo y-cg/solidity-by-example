@@ -9,6 +9,8 @@ let
   inherit (inputs) githooks;
 in
 {
+  devcontainer.enable = true;
+
   imports = [
     githooks.modules.default
   ];
@@ -32,5 +34,6 @@ in
   # https://devenv.sh/git-hooks/
   git-hooks.hooks = { };
 
+  apple.sdk = null;
   # See full reference at https://devenv.sh/reference/options/
 }
